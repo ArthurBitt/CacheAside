@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "redis-patterns"
+version = "0.1.0"
+description = "Redis patterns for Python services"
+requires-python = ">=3.11"
+dependencies = ["redis>=7.4.0"]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8",
+  "pytest-asyncio>=0.23",
+  "pytest-cov>=5",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["redis_patterns*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
